@@ -6,9 +6,10 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 class DeepRoot:
   def __init__(self):
     # self.model_name = "gpt2"
-    self.model_name = "deepseek-ai/DeepSeek-R1-0528"
-    self.tokenizer = AutoTokenizer.from_pretrained("deepseek-ai/DeepSeek-R1-0528", trust_remote_code=True)  # Fixed typo: from_pretained -> from_pretrained
-    self.model = AutoModelForCausalLM.from_pretrained("deepseek-ai/DeepSeek-R1-0528", trust_remote_code=True)
+    # self.model_name = "microsoft/DialoGPT-small"
+    self.model_name = "gpt2-medium"  # Changed to a more suitable model for the task
+    self.tokenizer = AutoTokenizer.from_pretrained(self.model_name, trust_remote_code=True)  # Fixed typo: from_pretained -> from_pretrained
+    self.model = AutoModelForCausalLM.from_pretrained(self.model_name, trust_remote_code=True)
     self.nicknames = ["DeepRoot", "Deep", "D.R", "DR"]
     self.description = "DeepRoot is a model designed to provide expert advice on soil health and plant growth, leveraging the power of GPT-2 architecture."
     self.personality_traits = {
@@ -87,9 +88,9 @@ class DeepRoot:
           return "I'm sorry, but I can only provide advice on soil health and plant growth. Please ask me a relevant question."
 
 
-
 # deep_root = DeepRoot()
 # print(deep_root.introduce())
+# user_input = "What is the best way grow tomatoes in my garden?" 
 # user_input = "What is the best way to improve soil health?"
 # response = deep_root.generate_response(user_input)
 # print(response)
